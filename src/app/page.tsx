@@ -156,11 +156,14 @@ export default async function Home() {
 
 			<section id="contact" className="contact">
 				<h2>Contact Us</h2>
-				<form method="POST" action="/api/contact">
+				<div id="contact-message" style={{ display: 'none', padding: '15px', margin: '20px 0', borderRadius: '5px', textAlign: 'center' }}></div>
+				<form id="contact-form" style={{ maxWidth: '500px', margin: '0 auto 20px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
 					<input type="text" name="name" placeholder="Your Name" required />
 					<input type="email" name="email" placeholder="Your Email" required />
-					<textarea name="message" placeholder="Your Message" required />
-					<button type="submit">Send Message</button>
+					<textarea name="message" placeholder="Your Message" required style={{ minHeight: '100px' }}></textarea>
+					<button type="submit" id="submit-btn" style={{ background: '#00a859', color: '#fff', padding: '12px', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '16px' }}>
+						Send Message
+					</button>
 				</form>
 				<div className="contact-info">
 					<p>Email: jobconnect@gmail.com</p>
@@ -172,6 +175,78 @@ export default async function Home() {
 			<footer className="footer">
 				<p>© 2025 JobConnect Rwanda. All Rights Reserved.</p>
 			</footer>
+
+			<script dangerouslySetInnerHTML={{
+				__html: `
+					document.addEventListener('DOMContentLoaded', function() {
+						const form = document.getElementById('contact-form');
+						const messageDiv = document.getElementById('contact-message');
+						const submitBtn = document.getElementById('submit-btn');
+						
+						form.addEventListener('submit', async function(e) {
+							e.preventDefault();
+							
+							// Show loading state
+							submitBtn.textContent = 'Sending...';
+							submitBtn.disabled = true;
+							messageDiv.style.display = 'none';
+							
+							// Get form data
+							const formData = new FormData(form);
+							const data = {
+								name: formData.get('name'),
+								email: formData.get('email'),
+								message: formData.get('message')
+							};
+							
+							try {
+								const response = await fetch('/api/contact', {
+									method: 'POST',
+									headers: {
+										'Content-Type': 'application/json',
+									},
+									body: JSON.stringify(data)
+								});
+								
+								const result = await response.json();
+								
+								if (response.ok) {
+									// Success
+									messageDiv.style.display = 'block';
+									messageDiv.style.background = '#d4edda';
+									messageDiv.style.color = '#155724';
+									messageDiv.style.border = '1px solid #c3e6cb';
+									messageDiv.textContent = result.message || 'Thank you for your message! We\\'ll get back to you soon.';
+									
+									// Clear form
+									form.reset();
+									
+									// Scroll to message
+									messageDiv.scrollIntoView({ behavior: 'smooth' });
+								} else {
+									// Error
+									messageDiv.style.display = 'block';
+									messageDiv.style.background = '#f8d7da';
+									messageDiv.style.color = '#721c24';
+									messageDiv.style.border = '1px solid #f5c6cb';
+									messageDiv.textContent = result.error || 'Sorry, there was an error sending your message. Please try again.';
+								}
+							} catch (error) {
+								// Network error
+								messageDiv.style.display = 'block';
+								messageDiv.style.background = '#f8d7da';
+								messageDiv.style.color = '#721c24';
+								messageDiv.style.border = '1px solid #f5c6cb';
+								messageDiv.textContent = 'Sorry, there was an error sending your message. Please try again.';
+							}
+							
+							// Reset button
+							submitBtn.textContent = 'Send Message';
+							submitBtn.disabled = false;
+						});
+					});
+				`
+			}} />
 
 			<style>{`
 				.navbar{display:flex;justify-content:space-between;align-items:center;padding:20px 50px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:sticky;top:0;z-index:10}

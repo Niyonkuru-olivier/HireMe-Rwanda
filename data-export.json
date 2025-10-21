@@ -1,0 +1,849 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "full_name": "Olivier Niyonkuru",
+      "national_id": "1234567890123456",
+      "email": "oniyonkuru233@gmail.com",
+      "role": "EMPLOYEE",
+      "password": "$2b$10$eb0PSwyYeonF3RQ4ALky7eqStXJNUfjGeddoRd4muGV0CMMB3NUgy",
+      "created_at": "2025-10-03T19:11:40.000Z",
+      "company": null,
+      "profile": null,
+      "documents": [
+        {
+          "id": 1,
+          "user_id": 1,
+          "file_name": "farmer_users.pdf",
+          "file_path": "static/uploads\\farmer_users.pdf",
+          "file_type": "CERTIFICATE",
+          "uploaded_at": "2025-10-07T12:21:04.000Z"
+        }
+      ],
+      "applications": [
+        {
+          "id": 4,
+          "user_id": 1,
+          "job_id": 4,
+          "status": "REJECTED",
+          "cover_letter": "good",
+          "applied_at": "2025-10-08T08:03:15.000Z",
+          "job": {
+            "id": 4,
+            "title": "Database Engineer",
+            "description": "database Engineer have the responsibility to Mantains all activities of database used in the insititutions",
+            "requirements": "Master's Degree",
+            "location": "Kigali",
+            "salary": "2M",
+            "type": "FULL_TIME",
+            "deadline": "2025-10-20T00:00:00.000Z",
+            "company_id": 3,
+            "created_at": "2025-10-08T08:01:14.000Z",
+            "updated_at": "2025-10-08T08:01:14.000Z",
+            "company": {
+              "id": 3,
+              "name": "MININFRA",
+              "description": "Ministry of Infrastructure",
+              "website": "https://www.mininfra.gov.rw/",
+              "owner_id": 8,
+              "created_at": "2025-10-08T07:58:51.000Z",
+              "updated_at": "2025-10-08T08:08:36.000Z"
+            }
+          }
+        },
+        {
+          "id": 7,
+          "user_id": 1,
+          "job_id": 2,
+          "status": "HIRED",
+          "cover_letter": "certificateDoc1.docx",
+          "applied_at": "2025-10-08T11:44:44.000Z",
+          "job": {
+            "id": 2,
+            "title": "Senior Software Developer",
+            "description": "We are Hiring Software Developer",
+            "requirements": "Bachelor Degree in Software Engineering and Related Fields",
+            "location": "Kigali",
+            "salary": "1M",
+            "type": "FULL_TIME",
+            "deadline": "2025-10-23T00:00:00.000Z",
+            "company_id": 1,
+            "created_at": "2025-10-07T11:21:12.000Z",
+            "updated_at": "2025-10-07T11:21:12.000Z",
+            "company": {
+              "id": 1,
+              "name": "MTN Rwanda",
+              "description": "We are Hiring a senior Software Developer",
+              "website": "https://www.mtn.co.rw/",
+              "owner_id": 6,
+              "created_at": "2025-10-07T11:13:35.000Z",
+              "updated_at": "2025-10-19T11:18:04.583Z"
+            }
+          }
+        },
+        {
+          "id": 11,
+          "user_id": 1,
+          "job_id": 6,
+          "status": "SHORTLISTED",
+          "cover_letter": "1760979255699_MINAGRI_Cover_letter.pdf",
+          "applied_at": "2025-10-20T16:54:15.705Z",
+          "job": {
+            "id": 6,
+            "title": "Customer care Specialist",
+            "description": ". promote our Brand\r\n. improve a customer care to our clients",
+            "requirements": ". should be a female\r\n. know the following Languages on highest level: English, French and kinyarwanda another international Language is an added advantages\r\n. Holding Bachelor's degree in an",
+            "location": "Kigali",
+            "salary": "450000",
+            "type": "FULL_TIME",
+            "deadline": "2025-10-31T00:00:00.000Z",
+            "company_id": 1,
+            "created_at": "2025-10-19T11:26:23.523Z",
+            "updated_at": "2025-10-19T11:30:51.872Z",
+            "company": {
+              "id": 1,
+              "name": "MTN Rwanda",
+              "description": "We are Hiring a senior Software Developer",
+              "website": "https://www.mtn.co.rw/",
+              "owner_id": 6,
+              "created_at": "2025-10-07T11:13:35.000Z",
+              "updated_at": "2025-10-19T11:18:04.583Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "full_name": "Jacques Tina",
+      "national_id": "1234567890123459",
+      "email": "oniyonkuru1@gmail.com",
+      "role": "EMPLOYEE",
+      "password": "$2b$10$ljKbnEIkLIRpK0RDGOw9VutwQklE9msLGAw391IpRUHN3Rp4DBDZm",
+      "created_at": "2025-10-04T13:59:43.000Z",
+      "company": null,
+      "profile": {
+        "id": 2,
+        "user_id": 2,
+        "phone": "+250781429744",
+        "location": "Gicumbi",
+        "education": "Bachelor's degree in Software Engineering",
+        "skills": "web Development",
+        "experience": "+5 years",
+        "updated_at": "2025-10-10T10:32:41.000Z"
+      },
+      "documents": [
+        {
+          "id": 4,
+          "user_id": 2,
+          "file_name": "Recommendation_Letter.docx",
+          "file_path": "static/uploads\\Recommendation_Letter.docx",
+          "file_type": "DIPLOMA",
+          "uploaded_at": "2025-10-10T10:33:05.000Z"
+        }
+      ],
+      "applications": [
+        {
+          "id": 3,
+          "user_id": 2,
+          "job_id": 4,
+          "status": "APPLIED",
+          "cover_letter": "job",
+          "applied_at": "2025-10-08T08:02:15.000Z",
+          "job": {
+            "id": 4,
+            "title": "Database Engineer",
+            "description": "database Engineer have the responsibility to Mantains all activities of database used in the insititutions",
+            "requirements": "Master's Degree",
+            "location": "Kigali",
+            "salary": "2M",
+            "type": "FULL_TIME",
+            "deadline": "2025-10-20T00:00:00.000Z",
+            "company_id": 3,
+            "created_at": "2025-10-08T08:01:14.000Z",
+            "updated_at": "2025-10-08T08:01:14.000Z",
+            "company": {
+              "id": 3,
+              "name": "MININFRA",
+              "description": "Ministry of Infrastructure",
+              "website": "https://www.mininfra.gov.rw/",
+              "owner_id": 8,
+              "created_at": "2025-10-08T07:58:51.000Z",
+              "updated_at": "2025-10-08T08:08:36.000Z"
+            }
+          }
+        },
+        {
+          "id": 9,
+          "user_id": 2,
+          "job_id": 2,
+          "status": "SHORTLISTED",
+          "cover_letter": "Part_1.docx",
+          "applied_at": "2025-10-10T10:32:17.000Z",
+          "job": {
+            "id": 2,
+            "title": "Senior Software Developer",
+            "description": "We are Hiring Software Developer",
+            "requirements": "Bachelor Degree in Software Engineering and Related Fields",
+            "location": "Kigali",
+            "salary": "1M",
+            "type": "FULL_TIME",
+            "deadline": "2025-10-23T00:00:00.000Z",
+            "company_id": 1,
+            "created_at": "2025-10-07T11:21:12.000Z",
+            "updated_at": "2025-10-07T11:21:12.000Z",
+            "company": {
+              "id": 1,
+              "name": "MTN Rwanda",
+              "description": "We are Hiring a senior Software Developer",
+              "website": "https://www.mtn.co.rw/",
+              "owner_id": 6,
+              "created_at": "2025-10-07T11:13:35.000Z",
+              "updated_at": "2025-10-19T11:18:04.583Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "full_name": "John Doe",
+      "national_id": "1234567890123100",
+      "email": "employer@example.com",
+      "role": "EMPLOYER",
+      "password": "$2b$10$ri2hAl6.bg7DD1ycdInz9uYv/lijxMW8yr4CEqCeSonTIvSoGkgpa",
+      "created_at": "2025-10-06T18:43:39.000Z",
+      "company": null,
+      "profile": null,
+      "documents": [],
+      "applications": []
+    },
+    {
+      "id": 6,
+      "full_name": "Rwiza Alex",
+      "national_id": "1234567891234567",
+      "email": "habufitejames@mininfra.gov.rw",
+      "role": "EMPLOYER",
+      "password": "$2b$10$GgzazHJzItHnmnxiHOsArutCRTTft0whqc3UY63j3xEsxMKjnXvDa",
+      "created_at": "2025-10-06T20:22:47.000Z",
+      "company": {
+        "id": 1,
+        "name": "MTN Rwanda",
+        "description": "We are Hiring a senior Software Developer",
+        "website": "https://www.mtn.co.rw/",
+        "owner_id": 6,
+        "created_at": "2025-10-07T11:13:35.000Z",
+        "updated_at": "2025-10-19T11:18:04.583Z"
+      },
+      "profile": null,
+      "documents": [],
+      "applications": []
+    },
+    {
+      "id": 7,
+      "full_name": "Jacques Nziza",
+      "national_id": "1200211234567890",
+      "email": "joy120@gmail.com",
+      "role": "EMPLOYEE",
+      "password": "$2b$12$Y9lYkJt6Igaw1ObGbo4pyuX6KEzVpo7OSuCvSixt.MLcSWItSUuFa",
+      "created_at": "2025-10-07T10:32:29.000Z",
+      "company": null,
+      "profile": {
+        "id": 1,
+        "user_id": 7,
+        "phone": "+250781429742",
+        "location": "Musanze",
+        "education": "Bachelor degree",
+        "skills": "Software Development",
+        "experience": "2 years",
+        "updated_at": "2025-10-07T16:12:42.000Z"
+      },
+      "documents": [
+        {
+          "id": 2,
+          "user_id": 7,
+          "file_name": "UR-logo.png",
+          "file_path": "static/uploads\\UR-logo.png",
+          "file_type": "CV",
+          "uploaded_at": "2025-10-07T16:54:43.000Z"
+        }
+      ],
+      "applications": [
+        {
+          "id": 1,
+          "user_id": 7,
+          "job_id": 2,
+          "status": "HIRED",
+          "cover_letter": "hhhhhhhhhh",
+          "applied_at": "2025-10-07T16:09:35.000Z",
+          "job": {
+            "id": 2,
+            "title": "Senior Software Developer",
+            "description": "We are Hiring Software Developer",
+            "requirements": "Bachelor Degree in Software Engineering and Related Fields",
+            "location": "Kigali",
+            "salary": "1M",
+            "type": "FULL_TIME",
+            "deadline": "2025-10-23T00:00:00.000Z",
+            "company_id": 1,
+            "created_at": "2025-10-07T11:21:12.000Z",
+            "updated_at": "2025-10-07T11:21:12.000Z",
+            "company": {
+              "id": 1,
+              "name": "MTN Rwanda",
+              "description": "We are Hiring a senior Software Developer",
+              "website": "https://www.mtn.co.rw/",
+              "owner_id": 6,
+              "created_at": "2025-10-07T11:13:35.000Z",
+              "updated_at": "2025-10-19T11:18:04.583Z"
+            }
+          }
+        },
+        {
+          "id": 5,
+          "user_id": 7,
+          "job_id": 4,
+          "status": "APPLIED",
+          "cover_letter": "Dawidi_Admission_letter.pdf",
+          "applied_at": "2025-10-08T08:58:52.000Z",
+          "job": {
+            "id": 4,
+            "title": "Database Engineer",
+            "description": "database Engineer have the responsibility to Mantains all activities of database used in the insititutions",
+            "requirements": "Master's Degree",
+            "location": "Kigali",
+            "salary": "2M",
+            "type": "FULL_TIME",
+            "deadline": "2025-10-20T00:00:00.000Z",
+            "company_id": 3,
+            "created_at": "2025-10-08T08:01:14.000Z",
+            "updated_at": "2025-10-08T08:01:14.000Z",
+            "company": {
+              "id": 3,
+              "name": "MININFRA",
+              "description": "Ministry of Infrastructure",
+              "website": "https://www.mininfra.gov.rw/",
+              "owner_id": 8,
+              "created_at": "2025-10-08T07:58:51.000Z",
+              "updated_at": "2025-10-08T08:08:36.000Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "full_name": "Ashula Ishimwe",
+      "national_id": "1200211234567820",
+      "email": "ashula@gmail.com",
+      "role": "EMPLOYER",
+      "password": "$2b$12$Emhw5GmYc4.4q4cL21/0BuRHEVIKafP8rDKqTqE65US1IFIopPQSy",
+      "created_at": "2025-10-08T07:56:25.000Z",
+      "company": {
+        "id": 3,
+        "name": "MININFRA",
+        "description": "Ministry of Infrastructure",
+        "website": "https://www.mininfra.gov.rw/",
+        "owner_id": 8,
+        "created_at": "2025-10-08T07:58:51.000Z",
+        "updated_at": "2025-10-08T08:08:36.000Z"
+      },
+      "profile": null,
+      "documents": [],
+      "applications": []
+    },
+    {
+      "id": 9,
+      "full_name": "Arnaud Ishimwe",
+      "national_id": "1200211234567810",
+      "email": "arno@gmail.com",
+      "role": "EMPLOYEE",
+      "password": "$2b$12$lPLfXN0JqtdlkAA6e3G65.rJMGg.6AmO4fO0tHzQZpSQhF/hUNixi",
+      "created_at": "2025-10-08T09:50:14.000Z",
+      "company": null,
+      "profile": null,
+      "documents": [],
+      "applications": [
+        {
+          "id": 6,
+          "user_id": 9,
+          "job_id": 4,
+          "status": "APPLIED",
+          "cover_letter": "Part_1.docx",
+          "applied_at": "2025-10-08T09:50:53.000Z",
+          "job": {
+            "id": 4,
+            "title": "Database Engineer",
+            "description": "database Engineer have the responsibility to Mantains all activities of database used in the insititutions",
+            "requirements": "Master's Degree",
+            "location": "Kigali",
+            "salary": "2M",
+            "type": "FULL_TIME",
+            "deadline": "2025-10-20T00:00:00.000Z",
+            "company_id": 3,
+            "created_at": "2025-10-08T08:01:14.000Z",
+            "updated_at": "2025-10-08T08:01:14.000Z",
+            "company": {
+              "id": 3,
+              "name": "MININFRA",
+              "description": "Ministry of Infrastructure",
+              "website": "https://www.mininfra.gov.rw/",
+              "owner_id": 8,
+              "created_at": "2025-10-08T07:58:51.000Z",
+              "updated_at": "2025-10-08T08:08:36.000Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "full_name": "Placide Gororerwa",
+      "national_id": "1200211234567800",
+      "email": "gororerwaplacide12@gmail.com",
+      "role": "EMPLOYEE",
+      "password": "$2b$12$szCX4Rv.T01LLu9kXUJR9.LkTiihnSkIIcDL4EMllvPJ2s5AqPAlO",
+      "created_at": "2025-10-09T15:26:18.000Z",
+      "company": null,
+      "profile": {
+        "id": 3,
+        "user_id": 10,
+        "phone": "+250780075414",
+        "location": "Musanze-Rwanda",
+        "education": "Bachelor degree in statistics",
+        "skills": "computer based skills, sports",
+        "experience": "+2 years as staticians",
+        "updated_at": "2025-10-09T15:41:46.000Z"
+      },
+      "documents": [
+        {
+          "id": 3,
+          "user_id": 10,
+          "file_name": "HireMe_Rwanda.docx",
+          "file_path": "static/uploads\\HireMe_Rwanda.docx",
+          "file_type": "CV",
+          "uploaded_at": "2025-10-09T15:42:25.000Z"
+        }
+      ],
+      "applications": [
+        {
+          "id": 8,
+          "user_id": 10,
+          "job_id": 5,
+          "status": "HIRED",
+          "cover_letter": "certificateDoc1.docx",
+          "applied_at": "2025-10-09T15:47:42.000Z",
+          "job": {
+            "id": 5,
+            "title": "Data Analyst",
+            "description": "he/she can have the responsibility for collecting data",
+            "requirements": "Holding a Bachelor degree in Statistics, Mathematics and related field",
+            "location": "Musanze",
+            "salary": "400K",
+            "type": "FULL_TIME",
+            "deadline": "2025-10-25T00:00:00.000Z",
+            "company_id": 4,
+            "created_at": "2025-10-09T15:34:30.000Z",
+            "updated_at": "2025-10-09T15:34:30.000Z",
+            "company": {
+              "id": 4,
+              "name": "GOICO LTD",
+              "description": "Is the market that located in Musanze city",
+              "website": "www.GOICO.rw",
+              "owner_id": 11,
+              "created_at": "2025-10-09T15:31:42.000Z",
+              "updated_at": "2025-10-09T15:31:42.000Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "full_name": "James Iraguha",
+      "national_id": "1234567890123455",
+      "email": "iraguhajames20@gmail.com",
+      "role": "EMPLOYER",
+      "password": "$2b$12$pl2oPZCX3kd0FVRmG6LBSecZE.Ii6NT9B4S6Har93R1M2M2TxRYIu",
+      "created_at": "2025-10-09T15:28:01.000Z",
+      "company": {
+        "id": 4,
+        "name": "GOICO LTD",
+        "description": "Is the market that located in Musanze city",
+        "website": "www.GOICO.rw",
+        "owner_id": 11,
+        "created_at": "2025-10-09T15:31:42.000Z",
+        "updated_at": "2025-10-09T15:31:42.000Z"
+      },
+      "profile": null,
+      "documents": [],
+      "applications": []
+    },
+    {
+      "id": 12,
+      "full_name": "Leila Rwiza Niyonkuru",
+      "national_id": "1234561234123456",
+      "email": "leila123@gmail.com",
+      "role": "EMPLOYEE",
+      "password": "$2a$10$9MRt5mYImnZu3ey52q7LXu96a1nZC1X95eYu81ynJsfAHip/OMagG",
+      "created_at": "2025-10-19T10:31:56.595Z",
+      "company": null,
+      "profile": {
+        "id": 4,
+        "user_id": 12,
+        "phone": "0788526563",
+        "location": "Musanze",
+        "education": "Bachelor's",
+        "skills": "IT skills",
+        "experience": "4 year's of experience in my Field",
+        "updated_at": "2025-10-19T10:52:18.438Z"
+      },
+      "documents": [
+        {
+          "id": 5,
+          "user_id": 12,
+          "file_name": "1760871170127_Fundamentals_of_Generative_AI.pdf",
+          "file_path": "C:\\Users\\Olivier\\Documents\\hireme-next\\public\\uploads\\1760871170127_Fundamentals_of_Generative_AI.pdf",
+          "file_type": "CV",
+          "uploaded_at": "2025-10-19T10:52:50.134Z"
+        }
+      ],
+      "applications": [
+        {
+          "id": 10,
+          "user_id": 12,
+          "job_id": 4,
+          "status": "APPLIED",
+          "cover_letter": "1760870026994_Enabling_digital_transformation.pdf",
+          "applied_at": "2025-10-19T10:33:47.005Z",
+          "job": {
+            "id": 4,
+            "title": "Database Engineer",
+            "description": "database Engineer have the responsibility to Mantains all activities of database used in the insititutions",
+            "requirements": "Master's Degree",
+            "location": "Kigali",
+            "salary": "2M",
+            "type": "FULL_TIME",
+            "deadline": "2025-10-20T00:00:00.000Z",
+            "company_id": 3,
+            "created_at": "2025-10-08T08:01:14.000Z",
+            "updated_at": "2025-10-08T08:01:14.000Z",
+            "company": {
+              "id": 3,
+              "name": "MININFRA",
+              "description": "Ministry of Infrastructure",
+              "website": "https://www.mininfra.gov.rw/",
+              "owner_id": 8,
+              "created_at": "2025-10-08T07:58:51.000Z",
+              "updated_at": "2025-10-08T08:08:36.000Z"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": 2,
+      "title": "Senior Software Developer",
+      "description": "We are Hiring Software Developer",
+      "requirements": "Bachelor Degree in Software Engineering and Related Fields",
+      "location": "Kigali",
+      "salary": "1M",
+      "type": "FULL_TIME",
+      "deadline": "2025-10-23T00:00:00.000Z",
+      "company_id": 1,
+      "created_at": "2025-10-07T11:21:12.000Z",
+      "updated_at": "2025-10-07T11:21:12.000Z",
+      "company": {
+        "id": 1,
+        "name": "MTN Rwanda",
+        "description": "We are Hiring a senior Software Developer",
+        "website": "https://www.mtn.co.rw/",
+        "owner_id": 6,
+        "created_at": "2025-10-07T11:13:35.000Z",
+        "updated_at": "2025-10-19T11:18:04.583Z"
+      },
+      "applications": [
+        {
+          "id": 1,
+          "user_id": 7,
+          "job_id": 2,
+          "status": "HIRED",
+          "cover_letter": "hhhhhhhhhh",
+          "applied_at": "2025-10-07T16:09:35.000Z",
+          "user": {
+            "id": 7,
+            "full_name": "Jacques Nziza",
+            "national_id": "1200211234567890",
+            "email": "joy120@gmail.com",
+            "role": "EMPLOYEE",
+            "password": "$2b$12$Y9lYkJt6Igaw1ObGbo4pyuX6KEzVpo7OSuCvSixt.MLcSWItSUuFa",
+            "created_at": "2025-10-07T10:32:29.000Z"
+          }
+        },
+        {
+          "id": 7,
+          "user_id": 1,
+          "job_id": 2,
+          "status": "HIRED",
+          "cover_letter": "certificateDoc1.docx",
+          "applied_at": "2025-10-08T11:44:44.000Z",
+          "user": {
+            "id": 1,
+            "full_name": "Olivier Niyonkuru",
+            "national_id": "1234567890123456",
+            "email": "oniyonkuru233@gmail.com",
+            "role": "EMPLOYEE",
+            "password": "$2b$10$eb0PSwyYeonF3RQ4ALky7eqStXJNUfjGeddoRd4muGV0CMMB3NUgy",
+            "created_at": "2025-10-03T19:11:40.000Z"
+          }
+        },
+        {
+          "id": 9,
+          "user_id": 2,
+          "job_id": 2,
+          "status": "SHORTLISTED",
+          "cover_letter": "Part_1.docx",
+          "applied_at": "2025-10-10T10:32:17.000Z",
+          "user": {
+            "id": 2,
+            "full_name": "Jacques Tina",
+            "national_id": "1234567890123459",
+            "email": "oniyonkuru1@gmail.com",
+            "role": "EMPLOYEE",
+            "password": "$2b$10$ljKbnEIkLIRpK0RDGOw9VutwQklE9msLGAw391IpRUHN3Rp4DBDZm",
+            "created_at": "2025-10-04T13:59:43.000Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Database Engineer",
+      "description": "database Engineer have the responsibility to Mantains all activities of database used in the insititutions",
+      "requirements": "Master's Degree",
+      "location": "Kigali",
+      "salary": "2M",
+      "type": "FULL_TIME",
+      "deadline": "2025-10-20T00:00:00.000Z",
+      "company_id": 3,
+      "created_at": "2025-10-08T08:01:14.000Z",
+      "updated_at": "2025-10-08T08:01:14.000Z",
+      "company": {
+        "id": 3,
+        "name": "MININFRA",
+        "description": "Ministry of Infrastructure",
+        "website": "https://www.mininfra.gov.rw/",
+        "owner_id": 8,
+        "created_at": "2025-10-08T07:58:51.000Z",
+        "updated_at": "2025-10-08T08:08:36.000Z"
+      },
+      "applications": [
+        {
+          "id": 3,
+          "user_id": 2,
+          "job_id": 4,
+          "status": "APPLIED",
+          "cover_letter": "job",
+          "applied_at": "2025-10-08T08:02:15.000Z",
+          "user": {
+            "id": 2,
+            "full_name": "Jacques Tina",
+            "national_id": "1234567890123459",
+            "email": "oniyonkuru1@gmail.com",
+            "role": "EMPLOYEE",
+            "password": "$2b$10$ljKbnEIkLIRpK0RDGOw9VutwQklE9msLGAw391IpRUHN3Rp4DBDZm",
+            "created_at": "2025-10-04T13:59:43.000Z"
+          }
+        },
+        {
+          "id": 4,
+          "user_id": 1,
+          "job_id": 4,
+          "status": "REJECTED",
+          "cover_letter": "good",
+          "applied_at": "2025-10-08T08:03:15.000Z",
+          "user": {
+            "id": 1,
+            "full_name": "Olivier Niyonkuru",
+            "national_id": "1234567890123456",
+            "email": "oniyonkuru233@gmail.com",
+            "role": "EMPLOYEE",
+            "password": "$2b$10$eb0PSwyYeonF3RQ4ALky7eqStXJNUfjGeddoRd4muGV0CMMB3NUgy",
+            "created_at": "2025-10-03T19:11:40.000Z"
+          }
+        },
+        {
+          "id": 5,
+          "user_id": 7,
+          "job_id": 4,
+          "status": "APPLIED",
+          "cover_letter": "Dawidi_Admission_letter.pdf",
+          "applied_at": "2025-10-08T08:58:52.000Z",
+          "user": {
+            "id": 7,
+            "full_name": "Jacques Nziza",
+            "national_id": "1200211234567890",
+            "email": "joy120@gmail.com",
+            "role": "EMPLOYEE",
+            "password": "$2b$12$Y9lYkJt6Igaw1ObGbo4pyuX6KEzVpo7OSuCvSixt.MLcSWItSUuFa",
+            "created_at": "2025-10-07T10:32:29.000Z"
+          }
+        },
+        {
+          "id": 6,
+          "user_id": 9,
+          "job_id": 4,
+          "status": "APPLIED",
+          "cover_letter": "Part_1.docx",
+          "applied_at": "2025-10-08T09:50:53.000Z",
+          "user": {
+            "id": 9,
+            "full_name": "Arnaud Ishimwe",
+            "national_id": "1200211234567810",
+            "email": "arno@gmail.com",
+            "role": "EMPLOYEE",
+            "password": "$2b$12$lPLfXN0JqtdlkAA6e3G65.rJMGg.6AmO4fO0tHzQZpSQhF/hUNixi",
+            "created_at": "2025-10-08T09:50:14.000Z"
+          }
+        },
+        {
+          "id": 10,
+          "user_id": 12,
+          "job_id": 4,
+          "status": "APPLIED",
+          "cover_letter": "1760870026994_Enabling_digital_transformation.pdf",
+          "applied_at": "2025-10-19T10:33:47.005Z",
+          "user": {
+            "id": 12,
+            "full_name": "Leila Rwiza Niyonkuru",
+            "national_id": "1234561234123456",
+            "email": "leila123@gmail.com",
+            "role": "EMPLOYEE",
+            "password": "$2a$10$9MRt5mYImnZu3ey52q7LXu96a1nZC1X95eYu81ynJsfAHip/OMagG",
+            "created_at": "2025-10-19T10:31:56.595Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Data Analyst",
+      "description": "he/she can have the responsibility for collecting data",
+      "requirements": "Holding a Bachelor degree in Statistics, Mathematics and related field",
+      "location": "Musanze",
+      "salary": "400K",
+      "type": "FULL_TIME",
+      "deadline": "2025-10-25T00:00:00.000Z",
+      "company_id": 4,
+      "created_at": "2025-10-09T15:34:30.000Z",
+      "updated_at": "2025-10-09T15:34:30.000Z",
+      "company": {
+        "id": 4,
+        "name": "GOICO LTD",
+        "description": "Is the market that located in Musanze city",
+        "website": "www.GOICO.rw",
+        "owner_id": 11,
+        "created_at": "2025-10-09T15:31:42.000Z",
+        "updated_at": "2025-10-09T15:31:42.000Z"
+      },
+      "applications": [
+        {
+          "id": 8,
+          "user_id": 10,
+          "job_id": 5,
+          "status": "HIRED",
+          "cover_letter": "certificateDoc1.docx",
+          "applied_at": "2025-10-09T15:47:42.000Z",
+          "user": {
+            "id": 10,
+            "full_name": "Placide Gororerwa",
+            "national_id": "1200211234567800",
+            "email": "gororerwaplacide12@gmail.com",
+            "role": "EMPLOYEE",
+            "password": "$2b$12$szCX4Rv.T01LLu9kXUJR9.LkTiihnSkIIcDL4EMllvPJ2s5AqPAlO",
+            "created_at": "2025-10-09T15:26:18.000Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Customer care Specialist",
+      "description": ". promote our Brand\r\n. improve a customer care to our clients",
+      "requirements": ". should be a female\r\n. know the following Languages on highest level: English, French and kinyarwanda another international Language is an added advantages\r\n. Holding Bachelor's degree in an",
+      "location": "Kigali",
+      "salary": "450000",
+      "type": "FULL_TIME",
+      "deadline": "2025-10-31T00:00:00.000Z",
+      "company_id": 1,
+      "created_at": "2025-10-19T11:26:23.523Z",
+      "updated_at": "2025-10-19T11:30:51.872Z",
+      "company": {
+        "id": 1,
+        "name": "MTN Rwanda",
+        "description": "We are Hiring a senior Software Developer",
+        "website": "https://www.mtn.co.rw/",
+        "owner_id": 6,
+        "created_at": "2025-10-07T11:13:35.000Z",
+        "updated_at": "2025-10-19T11:18:04.583Z"
+      },
+      "applications": [
+        {
+          "id": 11,
+          "user_id": 1,
+          "job_id": 6,
+          "status": "SHORTLISTED",
+          "cover_letter": "1760979255699_MINAGRI_Cover_letter.pdf",
+          "applied_at": "2025-10-20T16:54:15.705Z",
+          "user": {
+            "id": 1,
+            "full_name": "Olivier Niyonkuru",
+            "national_id": "1234567890123456",
+            "email": "oniyonkuru233@gmail.com",
+            "role": "EMPLOYEE",
+            "password": "$2b$10$eb0PSwyYeonF3RQ4ALky7eqStXJNUfjGeddoRd4muGV0CMMB3NUgy",
+            "created_at": "2025-10-03T19:11:40.000Z"
+          }
+        }
+      ]
+    }
+  ],
+  "announcements": [
+    {
+      "id": 5,
+      "title": "hello",
+      "content": "hello",
+      "expiration_date": null,
+      "created_at": "2025-10-20T15:55:38.240Z"
+    }
+  ],
+  "admins": [
+    {
+      "id": 2,
+      "email": "oniyonkuru210@gmail.com",
+      "password": "$2b$12$BI/5155kdQr8PRaRCPhy2uKnf2Zmf/bxaWRWEtDXMffDgZjFFvDAi",
+      "created_at": "2025-10-07T18:13:00.000Z"
+    },
+    {
+      "id": 3,
+      "email": "oniyonkuru@gmail.com",
+      "password": "$2b$12$9khlR.8zp.BK.E8RzPUK6eODr5bBPx4RMx6vbfucbuEfpg8//c65y",
+      "created_at": "2025-10-07T18:38:42.000Z"
+    },
+    {
+      "id": 4,
+      "email": "admin@example.com",
+      "password": "$2a$10$4E3KHXKLgqgxoz7Gz4G9eOBY4FNZsUwIs72td0EOksplIKJRHVyjW",
+      "created_at": "2025-10-19T18:32:49.636Z"
+    },
+    {
+      "id": 5,
+      "email": "oniyonkuru233@gmail.com",
+      "password": "$2a$10$jKmi115j7cKKkqgpFgxfVOOApK1pmt5.zRW69Eewi3ghkbOfRw4Iy",
+      "created_at": "2025-10-20T16:04:49.615Z"
+    }
+  ],
+  "exportDate": "2025-10-21T16:01:00.875Z"
+}
