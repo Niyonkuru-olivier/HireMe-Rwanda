@@ -24,8 +24,8 @@ export default function AdminApplicationsPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed to fetch applications");
       setApplications(data.applications || []);
-    } catch (e: any) {
-      setError(e.message || "Failed to fetch applications");
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : "Failed to fetch applications");
     } finally {
       setLoading(false);
     }
@@ -47,8 +47,8 @@ export default function AdminApplicationsPage() {
         throw new Error(data.error || "Failed to update");
       }
       await load();
-    } catch (e: any) {
-      alert(e.message || "Failed to update");
+    } catch (e: unknown) {
+      alert(e instanceof Error ? e.message : "Failed to update");
     }
   }
 

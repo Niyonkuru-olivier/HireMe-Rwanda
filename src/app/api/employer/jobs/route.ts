@@ -32,13 +32,22 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Title and description are required" }, { status: 400 });
     }
 
-    const jobData: any = {
+    const jobData: {
+      title: string;
+      description: string;
+      requirements: string | null;
+      location: string | null;
+      salary: string | null;
+      type: "FULL_TIME" | "PART_TIME" | "CONTRACT" | "INTERNSHIP";
+      company_id: number;
+      deadline?: Date;
+    } = {
       title: title.substring(0, 191), // Limit to 191 characters
       description: description.substring(0, 191), // Limit to 191 characters
       requirements: requirements ? requirements.substring(0, 191) : null, // Limit to 191 characters
       location: location ? location.substring(0, 191) : null, // Limit to 191 characters
       salary: salary ? salary.substring(0, 191) : null, // Limit to 191 characters
-      type: type as any || "FULL_TIME",
+      type: (type as "FULL_TIME" | "PART_TIME" | "CONTRACT" | "INTERNSHIP") || "FULL_TIME",
       company_id: company.id,
     };
 

@@ -2,9 +2,9 @@
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 
-export default function ResetPasswordPage() {
+function ResetPasswordForm() {
 	const params = useSearchParams();
 	const token = params.get("token") || "";
 	const [submitting, setSubmitting] = useState(false);
@@ -29,8 +29,8 @@ export default function ResetPasswordPage() {
 				window.location.href = "/auth/login";
 				return;
 			}
-			const data = await res.json().catch(() => ({} as any));
-			setError((data as any).error || "Failed to reset password");
+			const data = await res.json().catch(() => ({} as Record<string, unknown>));
+			setError((data as Record<string, unknown>).error as string || "Failed to reset password");
 		} finally {
 			setSubmitting(false);
 		}
@@ -49,5 +49,13 @@ export default function ResetPasswordPage() {
 				<p style={{ textAlign: "center", marginTop: 10 }}><Link href="/auth/login" style={{ color: "#00a859" }}>Back to Login</Link></p>
 			</div>
 		</div>
+	);
+}
+
+export default function ResetPasswordPage() {
+	return (
+		<Suspense fallback={<div>Loading...</div>}>
+			<ResetPasswordForm />
+		</Suspense>
 	);
 }

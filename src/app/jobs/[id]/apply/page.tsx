@@ -2,12 +2,13 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 
-export default async function ApplyPage({ params }: { params: { id: string } }) {
+export default async function ApplyPage({ params }: { params: Promise<{ id: string }> }) {
 	const session = await getSession();
 	if (!session || session.role !== "EMPLOYEE") {
 		return <div style={{ padding: 20 }}>Unauthorized. <Link href="/auth/login">Login</Link></div>;
 	}
-	const jobId = Number(params.id);
+	const resolvedParams = await params;
+	const jobId = Number(resolvedParams.id);
 	const job = await prisma.job.findUnique({ where: { id: jobId }, include: { company: true } });
 	if (!job) return <div style={{ padding: 20 }}>Job not found</div>;
 

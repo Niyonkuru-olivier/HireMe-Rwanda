@@ -1,7 +1,8 @@
 import Link from "next/link";
 
-export default function ThankYouPage({ searchParams }: { searchParams: { role?: string } }) {
-	const role = searchParams?.role;
+export default async function ThankYouPage({ searchParams }: { searchParams: Promise<{ role?: string }> }) {
+	const resolvedSearchParams = await searchParams;
+	const role = resolvedSearchParams?.role;
 	return (
 		<div style={{ maxWidth: 720, margin: "40px auto", padding: 20 }}>
 			<h1 style={{ color: "#00a859" }}>Registration successful!</h1>

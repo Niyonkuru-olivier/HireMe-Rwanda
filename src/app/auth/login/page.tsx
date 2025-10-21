@@ -39,8 +39,8 @@ export default function LoginPage() {
 				window.location.href = data.redirect || "/";
 				return;
 			}
-			const data = await res.json().catch(() => ({} as any));
-			setErrors({ form: (data as any).error || "Invalid credentials" });
+			const data = await res.json().catch(() => ({} as Record<string, unknown>));
+			setErrors({ form: (data as Record<string, unknown>).error as string || "Invalid credentials" });
 		} finally {
 			setSubmitting(false);
 		}

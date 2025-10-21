@@ -27,8 +27,8 @@ export default function AdminJobs() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed to fetch jobs");
       setJobs(data.jobs || []);
-    } catch (e: any) {
-      setError(e.message || "Failed to fetch jobs");
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : "Failed to fetch jobs");
     } finally {
       setLoading(false);
     }
@@ -51,8 +51,8 @@ export default function AdminJobs() {
         throw new Error(data.error || "Failed to delete job");
       }
       await fetchJobs(); // Refresh the list
-    } catch (e: any) {
-      alert(e.message || "Failed to delete job");
+    } catch (e: unknown) {
+      alert(e instanceof Error ? e.message : "Failed to delete job");
     }
   };
 

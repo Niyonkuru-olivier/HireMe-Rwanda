@@ -5,7 +5,7 @@ import { getSession } from "@/lib/auth";
 // 📌 DELETE — Delete a specific job (admin only)
 export async function DELETE(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // 🔒 Only allow admins
@@ -14,7 +14,8 @@ export async function DELETE(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const jobId = parseInt(params.id);
+    const resolvedParams = await params;
+    const jobId = parseInt(resolvedParams.id);
     if (isNaN(jobId)) {
       return NextResponse.json({ error: "Invalid job ID" }, { status: 400 });
     }

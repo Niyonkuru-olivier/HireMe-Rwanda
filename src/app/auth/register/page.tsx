@@ -58,8 +58,8 @@ export default function RegisterPage() {
 				window.location.href = `/auth/thank-you?role=${encodeURIComponent(role)}`;
 				return;
 			}
-			const data = await res.json().catch(() => ({} as any));
-			setErrors({ form: (data as any).error || "Registration failed" });
+			const data = await res.json().catch(() => ({} as Record<string, unknown>));
+			setErrors({ form: (data as Record<string, unknown>).error as string || "Registration failed" });
 		} finally {
 			setSubmitting(false);
 		}

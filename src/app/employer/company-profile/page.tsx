@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 export default async function CompanyProfilePage({ 
   searchParams 
 }: { 
-  searchParams: { saved?: string } 
+  searchParams: Promise<{ saved?: string }> 
 }) {
   const session = await getSession();
 
@@ -18,7 +18,8 @@ export default async function CompanyProfilePage({
     where: { owner_id: session.userId },
   });
 
-  const isSaved = searchParams.saved === "true";
+  const resolvedSearchParams = await searchParams;
+  const isSaved = resolvedSearchParams.saved === "true";
 
   return (
     <div style={styles.page}>

@@ -1,11 +1,17 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
-export default async function JobsPage({ searchParams }: { searchParams: { q?: string; location?: string; type?: string } }) {
-	const { q, location, type } = searchParams || {};
+export default async function JobsPage({ searchParams }: { searchParams: Promise<{ q?: string; location?: string; type?: string }> }) {
+	const resolvedSearchParams = await searchParams;
+	const { q, location, type } = resolvedSearchParams || {};
 	const now = new Date();
 	
-	const where: any = {
+	const where: {
+		OR: Array<{ deadline: null } | { deadline: { gt: Date } }>;
+		title?: { contains: string; mode: "insensitive" };
+		location?: string;
+		type?: "FULL_TIME" | "PART_TIME" | "CONTRACT" | "INTERNSHIP";
+	} = {
 		// Only show jobs with no deadline or deadline in the future
 		OR: [
 			{ deadline: null },
@@ -15,7 +21,7 @@ export default async function JobsPage({ searchParams }: { searchParams: { q?: s
 	
 	if (q) where.title = { contains: q, mode: "insensitive" };
 	if (location) where.location = location;
-	if (type) where.type = type as any;
+	if (type) where.type = type as "FULL_TIME" | "PART_TIME" | "CONTRACT" | "INTERNSHIP";
 	
 	const jobs = await prisma.job.findMany({ where, include: { company: true }, orderBy: { created_at: "desc" } });
 

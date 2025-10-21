@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
-import { redirect } from "next/navigation";
 
-export default async function ProfilePage({ searchParams }: { searchParams: { saved?: string } }) {
+export default async function ProfilePage({ searchParams }: { searchParams: Promise<{ saved?: string }> }) {
   const session = await getSession();
 
   if (!session || session.role !== "EMPLOYEE") {
@@ -21,7 +20,8 @@ export default async function ProfilePage({ searchParams }: { searchParams: { sa
     where: { user_id: session.userId },
   });
 
-  const isSaved = searchParams.saved === "true";
+  const resolvedSearchParams = await searchParams;
+  const isSaved = resolvedSearchParams.saved === "true";
 
   return (
     <div style={styles.page}>

@@ -4,7 +4,7 @@ import { getSession } from "@/lib/auth";
 import { sendApplicationStatusNotification } from "@/lib/email";
 
 interface RouteParams {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export async function POST(request: NextRequest, { params }: RouteParams) {
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
     // Update application status
     await prisma.application.update({
       where: { id: applicationId },
-      data: { status: status as any },
+      data: { status: status as "APPLIED" | "SHORTLISTED" | "REJECTED" | "HIRED" },
     });
 
     // Send email notification to employee

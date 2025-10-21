@@ -265,7 +265,7 @@ const inputStyle: React.CSSProperties = {
   borderRadius: 6,
 };
 
-const textareaStyle = { ...inputStyle, resize: "vertical" };
+const textareaStyle: React.CSSProperties = { ...inputStyle, resize: "vertical" };
 
 const buttonStyle: React.CSSProperties = {
   background: "#00a859",

@@ -13,7 +13,7 @@ export async function saveUploadedFile(file: File): Promise<{ filename: string; 
 	const buffer = Buffer.from(bytes);
 	const uploadsDir = path.join(process.cwd(), "public", "uploads");
 	await fs.mkdir(uploadsDir, { recursive: true });
-	const orig = (file as any).name as string;
+	const orig = file.name;
 	const safe = orig.replace(/[^a-zA-Z0-9._-]/g, "_");
 	const unique = `${Date.now()}_${safe}`;
 	const fullPath = path.join(uploadsDir, unique);
