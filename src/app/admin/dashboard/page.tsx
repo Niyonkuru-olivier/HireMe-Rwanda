@@ -2,6 +2,9 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 
+// Force dynamic rendering to avoid build-time database calls
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboard() {
   const session = await getSession();
 
@@ -15,12 +18,19 @@ export default async function AdminDashboard() {
   }
 
   // ✅ Fetch dashboard stats
-  const [totalUsers, totalJobs, totalApplications, totalAnnouncements] = await Promise.all([
-    prisma.user.count(),
-    prisma.job.count(),
-    prisma.application.count(),
-    prisma.announcement.count(),
-  ]);
+  let totalUsers = 0, totalJobs = 0, totalApplications = 0, totalAnnouncements = 0;
+  
+  try {
+    [totalUsers, totalJobs, totalApplications, totalAnnouncements] = await Promise.all([
+      prisma.user.count(),
+      prisma.job.count(),
+      prisma.application.count(),
+      prisma.announcement.count(),
+    ]);
+  } catch (error) {
+    console.error('Database connection error:', error);
+    // Continue with zero values if database is not available
+  }
 
   return (
     <div style={pageStyle}>

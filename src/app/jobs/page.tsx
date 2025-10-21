@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
+// Force dynamic rendering to avoid build-time database calls
+export const dynamic = 'force-dynamic';
+
 export default async function JobsPage({ searchParams }: { searchParams: Promise<{ q?: string; location?: string; type?: string }> }) {
 	const resolvedSearchParams = await searchParams;
 	const { q, location, type } = resolvedSearchParams || {};
@@ -23,7 +26,13 @@ export default async function JobsPage({ searchParams }: { searchParams: Promise
 	if (location) where.location = location;
 	if (type) where.type = type as "FULL_TIME" | "PART_TIME" | "CONTRACT" | "INTERNSHIP";
 	
-	const jobs = await prisma.job.findMany({ where, include: { company: true }, orderBy: { created_at: "desc" } });
+	let jobs = [];
+	try {
+		jobs = await prisma.job.findMany({ where, include: { company: true }, orderBy: { created_at: "desc" } });
+	} catch (error) {
+		console.error('Database connection error:', error);
+		// Continue with empty array if database is not available
+	}
 
 	return (
 		<div>

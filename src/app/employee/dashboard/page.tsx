@@ -2,6 +2,9 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 
+// Force dynamic rendering to avoid build-time database calls
+export const dynamic = 'force-dynamic';
+
 export default async function EmployeeDashboard() {
 	const session = await getSession();
 	if (!session || session.role !== "EMPLOYEE") {
@@ -11,22 +14,30 @@ export default async function EmployeeDashboard() {
 	const now = new Date();
 	const userId = session.userId;
 	
-	const applications = await prisma.application.findMany({
-		where: { user_id: userId },
-		include: { job: { include: { company: true } } },
-		orderBy: { applied_at: "desc" },
-	});
+	let applications = [];
+	let announcements = [];
 	
-	// Get non-expired announcements
-	const announcements = await prisma.announcement.findMany({
-		where: {
-			OR: [
-				{ expiration_date: null },
-				{ expiration_date: { gt: now } }
-			]
-		},
-		orderBy: { created_at: "desc" }
-	});
+	try {
+		applications = await prisma.application.findMany({
+			where: { user_id: userId },
+			include: { job: { include: { company: true } } },
+			orderBy: { applied_at: "desc" },
+		});
+		
+		// Get non-expired announcements
+		announcements = await prisma.announcement.findMany({
+			where: {
+				OR: [
+					{ expiration_date: null },
+					{ expiration_date: { gt: now } }
+				]
+			},
+			orderBy: { created_at: "desc" }
+		});
+	} catch (error) {
+		console.error('Database connection error:', error);
+		// Continue with empty arrays if database is not available
+	}
 
 	return (
 		<div>

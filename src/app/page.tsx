@@ -1,31 +1,42 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
+// Force dynamic rendering to avoid build-time database calls
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
 	const now = new Date();
 	
 	// Get all active jobs (no deadline or deadline in the future) with company info
-	const allJobs = await prisma.job.findMany({
-		where: {
-			OR: [
-				{ deadline: null },
-				{ deadline: { gt: now } }
-			]
-		},
-		include: { company: true },
-		orderBy: { created_at: "desc" },
-	});
+	let allJobs = [];
+	let announcements = [];
+	
+	try {
+		allJobs = await prisma.job.findMany({
+			where: {
+				OR: [
+					{ deadline: null },
+					{ deadline: { gt: now } }
+				]
+			},
+			include: { company: true },
+			orderBy: { created_at: "desc" },
+		});
 
-	// Get non-expired announcements
-	const announcements = await prisma.announcement.findMany({
-		where: {
-			OR: [
-				{ expiration_date: null },
-				{ expiration_date: { gt: now } }
-			]
-		},
-		orderBy: { created_at: "desc" },
-	});
+		// Get non-expired announcements
+		announcements = await prisma.announcement.findMany({
+			where: {
+				OR: [
+					{ expiration_date: null },
+					{ expiration_date: { gt: now } }
+				]
+			},
+			orderBy: { created_at: "desc" },
+		});
+	} catch (error) {
+		console.error('Database connection error:', error);
+		// Continue with empty arrays if database is not available
+	}
 
 	return (
 		<div className="home-container">

@@ -3,6 +3,9 @@ import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
+// Force dynamic rendering to avoid build-time database calls
+export const dynamic = 'force-dynamic';
+
 export default async function EmployerDashboard() {
   const session = await getSession();
 
@@ -10,50 +13,61 @@ export default async function EmployerDashboard() {
     redirect("/auth/login");
   }
 
-  // Get company information
-  const company = await prisma.company.findUnique({
-    where: { owner_id: session.userId },
-  });
+  // Get company information and dashboard data
+  let company = null;
+  let announcements = [];
+  let jobs = [];
+  let totalApplications = 0;
+  let recentApplications = [];
+  
+  try {
+    company = await prisma.company.findUnique({
+      where: { owner_id: session.userId },
+    });
 
-  // Get non-expired announcements
-  const now = new Date();
-  const announcements = await prisma.announcement.findMany({
-    where: {
-      OR: [
-        { expiration_date: null },
-        { expiration_date: { gt: now } }
-      ]
-    },
-    orderBy: { created_at: "desc" },
-    take: 5,
-  });
+    // Get non-expired announcements
+    const now = new Date();
+    announcements = await prisma.announcement.findMany({
+      where: {
+        OR: [
+          { expiration_date: null },
+          { expiration_date: { gt: now } }
+        ]
+      },
+      orderBy: { created_at: "desc" },
+      take: 5,
+    });
 
-  // Get jobs posted by this employer
-  const jobs = await prisma.job.findMany({
-    where: { company_id: company?.id },
-    include: { 
-      applications: {
-        include: { user: true }
-      }
-    },
-    orderBy: { created_at: "desc" },
-  });
+    // Get jobs posted by this employer
+    jobs = await prisma.job.findMany({
+      where: { company_id: company?.id },
+      include: { 
+        applications: {
+          include: { user: true }
+        }
+      },
+      orderBy: { created_at: "desc" },
+    });
 
-  // Get total applications across all jobs
-  const totalApplications = jobs.reduce((sum, job) => sum + job.applications.length, 0);
+    // Get total applications across all jobs
+    totalApplications = jobs.reduce((sum, job) => sum + job.applications.length, 0);
 
-  // Get recent applications
-  const recentApplications = await prisma.application.findMany({
-    where: { 
-      job: { company_id: company?.id }
-    },
-    include: { 
-      user: true, 
-      job: true 
-    },
-    orderBy: { applied_at: "desc" },
-    take: 5,
-  });
+    // Get recent applications
+    recentApplications = await prisma.application.findMany({
+      where: { 
+        job: { company_id: company?.id }
+      },
+      include: { 
+        user: true, 
+        job: true 
+      },
+      orderBy: { applied_at: "desc" },
+      take: 5,
+    });
+  } catch (error) {
+    console.error('Database connection error:', error);
+    // Continue with empty/default values if database is not available
+  }
 
   return (
     <div style={styles.page}>
