@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
+import { Application, Announcement } from "@prisma/client";
 
 // Force dynamic rendering to avoid build-time database calls
 export const dynamic = 'force-dynamic';
@@ -14,8 +15,8 @@ export default async function EmployeeDashboard() {
 	const now = new Date();
 	const userId = session.userId;
 	
-	let applications = [];
-	let announcements = [];
+	let applications: (Application & { job: { title: string; company: { name: string } } })[] = [];
+	let announcements: Announcement[] = [];
 	
 	try {
 		applications = await prisma.application.findMany({

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { Job, Company, Announcement } from "@prisma/client";
 
 // Force dynamic rendering to avoid build-time database calls
 export const dynamic = 'force-dynamic';
@@ -8,8 +9,8 @@ export default async function Home() {
 	const now = new Date();
 	
 	// Get all active jobs (no deadline or deadline in the future) with company info
-	let allJobs = [];
-	let announcements = [];
+	let allJobs: (Job & { company: Company | null })[] = [];
+	let announcements: Announcement[] = [];
 	
 	try {
 		allJobs = await prisma.job.findMany({

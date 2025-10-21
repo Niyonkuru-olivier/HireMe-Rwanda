@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import { Company, Announcement, Job, Application } from "@prisma/client";
 
 // Force dynamic rendering to avoid build-time database calls
 export const dynamic = 'force-dynamic';
@@ -14,11 +15,11 @@ export default async function EmployerDashboard() {
   }
 
   // Get company information and dashboard data
-  let company = null;
-  let announcements = [];
-  let jobs = [];
+  let company: Company | null = null;
+  let announcements: Announcement[] = [];
+  let jobs: (Job & { applications: (Application & { user: { full_name: string } })[] })[] = [];
   let totalApplications = 0;
-  let recentApplications = [];
+  let recentApplications: (Application & { user: { full_name: string }; job: { title: string } })[] = [];
   
   try {
     company = await prisma.company.findUnique({

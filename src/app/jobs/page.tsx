@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { Job, Company } from "@prisma/client";
 
 // Force dynamic rendering to avoid build-time database calls
 export const dynamic = 'force-dynamic';
@@ -26,7 +27,7 @@ export default async function JobsPage({ searchParams }: { searchParams: Promise
 	if (location) where.location = location;
 	if (type) where.type = type as "FULL_TIME" | "PART_TIME" | "CONTRACT" | "INTERNSHIP";
 	
-	let jobs = [];
+	let jobs: (Job & { company: Company | null })[] = [];
 	try {
 		jobs = await prisma.job.findMany({ where, include: { company: true }, orderBy: { created_at: "desc" } });
 	} catch (error) {
