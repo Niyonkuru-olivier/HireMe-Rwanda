@@ -25,17 +25,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Botpress Webchat Scripts */}
-        <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js" async></script>
-        <script src="https://files.bpcontent.cloud/2026/02/16/17/20260216175210-EE4UUI1L.json" async></script>
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
         
-        {/* Botpress AI Chatbot Component for Custom Styling */}
+        {/* Botpress AI Chatbot Widget */}
         <BotpressChatbot />
       </body>
     </html>

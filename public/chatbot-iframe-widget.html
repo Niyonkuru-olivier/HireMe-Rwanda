@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Botpress Widget Test</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            background: #f5f5f5;
+            margin: 0;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 { color: #00a859; }
+        
+        /* Floating chatbot widget */
+        .chatbot-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse-orange 2s infinite;
+        }
+        
+        .chatbot-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.6);
+        }
+        
+        .chatbot-button svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+        
+        @keyframes pulse-orange {
+            0%, 100% { box-shadow: 0 4px 15px rgba(255, 152, 0, 0.5); }
+            50% { box-shadow: 0 4px 25px rgba(255, 152, 0, 0.9); }
+        }
+        
+        .chatbot-iframe {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 400px;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            z-index: 9998;
+        }
+        
+        .chatbot-iframe.open {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .chatbot-iframe {
+                width: calc(100vw - 40px);
+                height: calc(100vh - 120px);
+                right: 20px;
+                bottom: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>🤖 Botpress Chatbot - Floating Widget</h1>
+        <div style="background: #d4edda; padding: 15px; margin: 20px 0; border-radius: 5px; border-left: 4px solid #28a745;">
+            ✅ Look for the ORANGE button in the bottom-right corner!
+        </div>
+        <p>Click the orange button to open the chatbot.</p>
+        <p>This integration uses your shareable Botpress URL as a floating widget.</p>
+        
+        <h2>Test the chatbot:</h2>
+        <ul>
+            <li>Click the orange button</li>
+            <li>Chat interface opens</li>
+            <li>Ask questions about JobConnect Rwanda</li>
+            <li>Click button again to close</li>
+        </ul>
+    </div>
+
+    <!-- Floating Chatbot Widget -->
+    <div class="chatbot-widget">
+        <button class="chatbot-button" id="chatbot-toggle" aria-label="Toggle chatbot">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+                <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+            </svg>
+        </button>
+        <iframe 
+            id="chatbot-iframe"
+            class="chatbot-iframe"
+            src="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/02/16/17/20260216175210-EE4UUI1L.json"
+            title="JobConnect Chatbot"
+        ></iframe>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('chatbot-toggle');
+        const chatbotIframe = document.getElementById('chatbot-iframe');
+        let isOpen = false;
+
+        toggleButton.addEventListener('click', () => {
+            isOpen = !isOpen;
+            if (isOpen) {
+                chatbotIframe.classList.add('open');
+                toggleButton.style.transform = 'rotate(180deg)';
+            } else {
+                chatbotIframe.classList.remove('open');
+                toggleButton.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isOpen && !e.target.closest('.chatbot-widget')) {
+                isOpen = false;
+                chatbotIframe.classList.remove('open');
+                toggleButton.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        console.log('✅ Chatbot widget loaded');
+    </script>
+</body>
+</html>

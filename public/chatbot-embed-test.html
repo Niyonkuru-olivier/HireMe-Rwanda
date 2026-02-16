@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Botpress Embed Test</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        h1 { color: #00a859; }
+        .info { background: #e3f2fd; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Botpress Chatbot - Embed Method</h1>
+        
+        <div class="info">
+            <strong>This uses the EMBED method (iframe)</strong>
+            <p>The chatbot should appear in the frame below.</p>
+            <p>If you see it, the URL is correct and working!</p>
+        </div>
+
+        <h2>Your Botpress Chatbot:</h2>
+        
+        <!-- Direct embed using your shareable URL -->
+        <iframe 
+            src="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/02/16/17/20260216175210-EE4UUI1L.json"
+            title="Botpress Webchat"
+        ></iframe>
+
+        <div style="margin-top: 20px; padding: 15px; background: #fff3e0; border-radius: 5px;">
+            <strong>✅ If you see the chat interface above:</strong>
+            <ul>
+                <li>Your Botpress URL is correct</li>
+                <li>Your chatbot is published and working</li>
+                <li>The issue is with the inject method</li>
+            </ul>
+            
+            <strong>❌ If you see "Unable to connect" or blank:</strong>
+            <ul>
+                <li>Check if your chatbot is published in Botpress dashboard</li>
+                <li>Verify the configuration URL is correct</li>
+                <li>Check your internet connection</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

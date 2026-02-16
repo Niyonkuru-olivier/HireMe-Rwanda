@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Botpress Working Integration</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            background: #f5f5f5;
+        }
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 { color: #00a859; }
+        .success { background: #d4edda; padding: 15px; margin: 20px 0; border-radius: 5px; border-left: 4px solid #28a745; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>🤖 Botpress Chatbot - Working Integration</h1>
+        <div class="success">
+            ✅ The chatbot should appear as an ORANGE button in the bottom-right corner!
+        </div>
+        <p>This page uses the correct integration method for your Botpress shareable URL.</p>
+        <p>Wait 3-5 seconds for the widget to load...</p>
+    </div>
+
+    <!-- Botpress Webchat Integration -->
+    <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+    <script>
+        window.botpressWebChat.init({
+            "composerPlaceholder": "Ask me anything about JobConnect Rwanda...",
+            "botConversationDescription": "Your AI assistant for JobConnect Rwanda",
+            "botId": "EE4UUI1L",
+            "hostUrl": "https://cdn.botpress.cloud/webchat/v3.6",
+            "messagingUrl": "https://messaging.botpress.cloud",
+            "clientId": "EE4UUI1L",
+            "webhookId": "your-webhook-id",
+            "lazySocket": true,
+            "themeName": "prism",
+            "botName": "JobConnect Assistant",
+            "stylesheet": "https://webchat-styler-css.botpress.app/prod/code/d3c34e90-f5c0-4d3e-9e5f-8b3c7e5d4c3b/v85455/style.css",
+            "frontendVersion": "v3.6",
+            "useSessionStorage": true,
+            "theme": "prism",
+            "themeColor": "#ff9800"
+        });
+
+        // Apply custom orange styling
+        setTimeout(() => {
+            const style = document.createElement('style');
+            style.innerHTML = `
+                /* Orange theme for chatbot */
+                #bp-web-widget-container {
+                    z-index: 9999 !important;
+                }
+                
+                #bp-web-widget-container button,
+                #bp-web-widget-container .bpw-widget-btn,
+                .bpw-floating-button {
+                    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%) !important;
+                    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.5) !important;
+                }
+                
+                #bp-web-widget-container button:hover {
+                    background: linear-gradient(135deg, #f57c00 0%, #e65100 100%) !important;
+                    transform: scale(1.1) !important;
+                    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.6) !important;
+                }
+                
+                @keyframes pulse-orange {
+                    0%, 100% { box-shadow: 0 4px 15px rgba(255, 152, 0, 0.5); }
+                    50% { box-shadow: 0 4px 25px rgba(255, 152, 0, 0.9); }
+                }
+                
+                #bp-web-widget-container button,
+                .bpw-floating-button {
+                    animation: pulse-orange 2s infinite !important;
+                }
+                
+                .bpw-header {
+                    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%) !important;
+                }
+                
+                .bpw-from-user .bpw-chat-bubble {
+                    background-color: #ff9800 !important;
+                }
+                
+                .bpw-send-button {
+                    background-color: #ff9800 !important;
+                }
+            `;
+            document.head.appendChild(style);
+            console.log('✅ Orange styling applied');
+        }, 2000);
+    </script>
+</body>
+</html>
