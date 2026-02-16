@@ -4,10 +4,17 @@ import { useEffect, useState } from 'react';
 
 export default function BotpressChatbot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     console.log('Botpress chatbot component mounted');
   }, []);
+
+  // Don't render anything until mounted (prevents hydration issues)
+  if (!isMounted) {
+    return null;
+  }
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
@@ -41,9 +48,16 @@ export default function BotpressChatbot() {
           alignItems: 'center',
           justifyContent: 'center',
           transition: 'all 0.3s ease',
-          animation: 'pulse-orange 2s infinite',
           zIndex: 9999,
           transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = isOpen ? 'rotate(180deg) scale(1.1)' : 'scale(1.1)';
+          e.currentTarget.style.boxShadow = '0 6px 20px rgba(255, 152, 0, 0.6)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+          e.currentTarget.style.boxShadow = '0 4px 15px rgba(255, 152, 0, 0.5)';
         }}
       >
         <svg
@@ -66,6 +80,7 @@ export default function BotpressChatbot() {
             left: 0,
             right: 0,
             bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.3)',
             zIndex: 9998,
           }}
         >
@@ -92,13 +107,16 @@ export default function BotpressChatbot() {
       {/* Styles */}
       <style jsx global>{`
         @keyframes pulse-orange {
-          0%, 100% { box-shadow: 0 4px 15px rgba(255, 152, 0, 0.5); }
-          50% { box-shadow: 0 4px 25px rgba(255, 152, 0, 0.9); }
+          0%, 100% { 
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.5); 
+          }
+          50% { 
+            box-shadow: 0 4px 25px rgba(255, 152, 0, 0.9); 
+          }
         }
         
-        .chatbot-button:hover {
-          transform: scale(1.1) !important;
-          box-shadow: 0 6px 20px rgba(255, 152, 0, 0.6) !important;
+        .chatbot-button {
+          animation: pulse-orange 2s infinite;
         }
       `}</style>
     </>
