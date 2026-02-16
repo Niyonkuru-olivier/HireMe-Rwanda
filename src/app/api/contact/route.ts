@@ -34,15 +34,6 @@ export async function POST(req: NextRequest) {
 				ip: req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown'
 			});
 			
-			// Store in database for now (you can check these later)
-			try {
-				const { prisma } = await import('@/lib/prisma');
-				// You could create a contact_messages table if you want to store these
-				// For now, we'll just log them
-			} catch (dbError) {
-				console.log("Database not available for contact storage");
-			}
-			
 			return NextResponse.json({ 
 				success: true, 
 				message: "Thank you for your message! We'll get back to you soon.",
